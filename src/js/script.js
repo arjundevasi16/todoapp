@@ -23,7 +23,7 @@ function fillterData() {
     return input1 && input2 && input3;
   });
   filterNewData.forEach((element) => {
-    addDiv(element);
+    addTodo(element);
   });
 }
 
@@ -58,7 +58,7 @@ function getDayRemaning(dateObj) {
   }
 }
 
-function addDiv(obj) {
+function addTodo(obj) {
   let newDiv = document.createElement("div");
   newDiv.innerHTML = ` <div class="px-5 shadow flex flex-col gap-4 py-4" id="task${obj.id}">
               <div class="flex justify-between">
@@ -103,5 +103,5 @@ document.querySelector("#taskSubmit").addEventListener("submit", (e) => {
     dayRemaining: getDayRemaning(dateObj),
   };
   taskData.push(obj);
-  addDiv(obj);
+  addTodo(obj);
 });
