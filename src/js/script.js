@@ -1,12 +1,12 @@
 const task = document.querySelector("#task");
 const decription = document.querySelector("#description");
 const priority = document.querySelector("#priority");
-const addBtn = document.querySelector("#addBtn");
+const addTaskBtn = document.querySelector("#addTaskBtn");
 const taskDate = document.querySelector("#date");
 const taskContainer = document.querySelector("#taskContainer");
-const searchTaskInput = document.querySelector("#search_task");
-const priorite_filter = document.querySelector("#priorite_filter");
-const status_filter = document.querySelector("#status_filter");
+const searchTaskInput = document.querySelector("#searchTaskInput");
+const prioriteFillter = document.querySelector("#prioriteFillter");
+const statusFillter = document.querySelector("#statusFillter");
 const taskform = document.querySelector("#taskSubmit");
 const filterResetBtn = document.querySelector("#filterResetBtn");
 const filterform = document.querySelector("#filterForm");
@@ -14,8 +14,8 @@ let taskData = JSON.parse(localStorage.getItem("userTaskData")) || [];
 let editIndex = null;
 function resetForm() {
   editIndex = null;
-  addBtn.textContent = "ADD";
-  addBtn.style.backgroundColor = "blue";
+  addTaskBtn.textContent = "ADD";
+  addTaskBtn.style.backgroundColor = "blue";
   cancelBTN.remove();
   taskform.reset();
 }
@@ -35,12 +35,12 @@ function fillterData() {
       !searchTaskInput.value.trim() ||
       obj.userTask.includes(searchTaskInput.value.trim());
     const input2 =
-      !priorite_filter.value || obj.priority1 === priorite_filter.value;
-    const input3 = !status_filter.value || obj.status === status_filter.value;
+      !prioriteFillter.value || obj.priority1 === prioriteFillter.value;
+    const input3 = !statusFillter.value || obj.status === statusFillter.value;
     return input1 && input2 && input3;
   });
-  addBtn.disabled = true;
-  addBtn.setAttribute(
+  addTaskBtn.disabled = true;
+  addTaskBtn.setAttribute(
     "class",
     "bg-blue-500 text-white font-bold w-full py-2 rounded mt-4 opacity-50 cursor-not-allowed"
   );
@@ -53,8 +53,8 @@ function fillterData() {
 }
 
 searchTaskInput.addEventListener("input", fillterData);
-priorite_filter.addEventListener("change", fillterData);
-status_filter.addEventListener("change", fillterData);
+prioriteFillter.addEventListener("change", fillterData);
+statusFillter.addEventListener("change", fillterData);
 
 function removeTask(id) {
   let index = findArrayIndex(id);
@@ -88,8 +88,8 @@ function updateTask(id) {
   taskDate.value = taskData[index].date;
   cancelBTN.innerText = "❌";
   taskform.appendChild(cancelBTN);
-  addBtn.textContent = "Update";
-  addBtn.style.backgroundColor = "green";
+  addTaskBtn.textContent = "Update";
+  addTaskBtn.style.backgroundColor = "green";
   editIndex = id;
 }
 
@@ -176,11 +176,11 @@ cancelBTN.addEventListener("click", (e) => {
 });
 filterResetBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  addBtn.setAttribute(
+  addTaskBtn.setAttribute(
     "class",
     "bg-blue-500 hover:bg-blue-700 text-white font-bold w-full py-2 rounded mt-4 "
   );
-  addBtn.disabled = false;
+  addTaskBtn.disabled = false;
   filterform.reset();
   renderTasks();
 });
