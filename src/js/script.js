@@ -10,6 +10,8 @@ const statusFillter = document.querySelector("#statusFillter");
 const taskform = document.querySelector("#taskSubmit");
 const filterResetBtn = document.querySelector("#filterResetBtn");
 const filterform = document.querySelector("#filterForm");
+let today = new Date().toISOString().split("T")[0];
+taskDate.setAttribute("min", today);
 let taskData = JSON.parse(localStorage.getItem("userTaskData")) || [];
 let editIndex = null;
 function resetForm() {
@@ -67,9 +69,15 @@ function getDayRemaning(date) {
   let diff = new Date(date) - new Date();
   let day = Math.ceil(diff / (1000 * 60 * 60 * 24));
   if (day === 1) {
-    return "Tomorrow";
+    return "Due Tomorrow";
+  }
+  if (day === 0) {
+    return "Due Today";
+  }
+  if (day > 1) {
+    return `Due in ${day} days`;
   } else {
-    return `${day} days`;
+    return "overdue";
   }
 }
 function changeStatus(id) {
@@ -80,13 +88,17 @@ function changeStatus(id) {
   renderTasks();
 }
 let cancelBTN = document.createElement("button");
+cancelBTN.setAttribute(
+  "class",
+  "bg-red-500 hover:bg-red-700 text-white font-bold w-full py-2 rounded mt-2"
+);
 function updateTask(id) {
   const index = findArrayIndex(id);
   task.value = taskData[index].userTask;
   decription.value = taskData[index].decription1;
   priority.value = taskData[index].priority1;
   taskDate.value = taskData[index].date;
-  cancelBTN.innerText = "❌";
+  cancelBTN.innerText = "Cancel";
   taskform.appendChild(cancelBTN);
   addTaskBtn.textContent = "Update";
   addTaskBtn.style.backgroundColor = "green";
@@ -128,9 +140,7 @@ function addTodo(obj) {
                     obj.date
                   }</span>
                 </div>
-                <span class="text-red-300">Due ${getDayRemaning(
-                  obj.date
-                )} </span>
+                <span class="text-red-300"> ${getDayRemaning(obj.date)} </span>
               </div>`;
   taskContainer.appendChild(newDiv);
 }

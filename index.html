@@ -26,23 +26,28 @@
           <label for="description" class="font-bold">Description</label>
           <textarea
             id="description"
-            class="w-full p-2 border rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="w-full py-2 pl-0.5 border rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
           </textarea>
           <label for="priority" class="font-bold my-1.5">Priority</label>
-          <select id="priority" class="w-full p-2 border rounded mb-2">
+          <select id="priority" class="w-full p-2 border rounded mb-2" required>
             <option value="" disabled selected>Select</option>
             <option value="high">High</option>
             <option value="medium">Medium</option>
             <option value="low">Low</option>
           </select>
           <label for="date" class="font-bold mx-1.5">Due Date</label>
-          <input type="date" id="date" class="w-full p-2 border rounded mb-2" />
+          <input
+            type="date"
+            id="date"
+            class="w-full p-2 border rounded mb-2"
+            required
+          />
 
           <button
             type="submit"
             id="addTaskBtn"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold w-full py-2 rounded mt-4"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold w-full py-2 rounded mt-2"
           >
             ADD
           </button>
