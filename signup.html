@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign UP</title>
+    <link rel="stylesheet" href="./src/css/output.css" />
+  </head>
+  <body>
+    <div class="min-h-screen flex items-center justify-center bg-amber-100">
+      <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-6 text-center">Sign Up</h1>
+        <form action="index.html" class="space-y-4" id="signUpForm">
+          <div>
+            <label
+              for="userName"
+              class="block text-sm font-medium text-gray-700"
+              >Name</label
+            >
+            <input
+              type="text"
+              id="userName"
+              placeholder="Enter name"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500"
+              required
+            />
+            <span class="block text-red-300 text-sm" id="error-msg"></span>
+          </div>
+          <div>
+            <label
+              for="userEmail"
+              class="block text-sm font-medium text-gray-700"
+              >Email</label
+            >
+            <input
+              type="email"
+              id="userEmail"
+              placeholder="Enter email"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+              required
+            />
+          </div>
+          <div>
+            <label
+              for="userPassword"
+              class="block text-sm font-medium text-gray-700"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="userPassword"
+              placeholder="Enter password"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+              required
+            />
+            <span
+              id="passwordErrorMsg"
+              class="block text-red-300 text-sm"
+            ></span>
+          </div>
+          <div>
+            <label
+              for="userConfirmPass"
+              class="block text-sm font-medium text-gray-700"
+              >Confirm Password</label
+            >
+            <input
+              type="password"
+              id="userConfirmPass"
+              placeholder="Confirm password"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+              required
+            />
+            <span
+              class="block text-red-300 text-sm"
+              id="ConfirmErrorMsg"
+            ></span>
+          </div>
+          <div class="flex items-center">
+            <input
+              type="checkbox"
+              id="terms"
+              class="h-4 w-4 text-amber-600 focus:ring-amber-500 border-gray-300 rounded"
+            />
+            <label for="terms" class="ml-2 block text-sm text-gray-900">
+              I agree to the
+              <a href="#" class="text-amber-600 hover:text-amber-500"
+                >terms and conditions</a
+              >
+            </label>
+          </div>
+          <button
+            type="submit"
+            class="w-full py-2 px-4 bg-amber-600 text-white font-semibold rounded-md shadow hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
+          >
+            Sign Up
+          </button>
+        </form>
+      </div>
+    </div>
+    <script src="./src/js/sign.js"></script>
+  </body>
+</html>

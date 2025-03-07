@@ -7,8 +7,22 @@
   </head>
   <body class="py-4">
     <div class="mx-auto p-2">
-      <nav class="bg-amber-50 text-center h-fit py-3 shadow-md">
+      <nav
+        class="bg-amber-50 text-center h-fit py-3 shadow-md flex justify-between items-center"
+      >
         <h1 class="text-6xl text-center">Taskify</h1>
+        <div class="flex gap-2">
+          <a
+            href="signup.html"
+            class="border-b-zinc-950 border-2 py-1 rounded bg-black hover:bg-white hover:text-black px-10 text-white"
+            >Sign Up</a
+          >
+          <a
+            href="login.html"
+            class="border-b-zinc-950 border-2 py-1 rounded bg-white hover:bg-black hover:text-white px-10"
+            >Log In</a
+          >
+        </div>
       </nav>
       <div class="flex gap-2 mt-2 mx-auto h-130">
         <form
@@ -58,9 +72,9 @@
               <h1 class="text-2xl font-bold">Filter task</h1>
               <button
                 id="filterResetBtn"
-                class="p-1 rounded bg-blue-500 text-white"
+                class="p-1 rounded bg-blue-500 text-white text-xs"
               >
-                reset filter
+                RESET FILLTER
               </button>
             </div>
             <div class="flex gap-5 justify-between mt-1">

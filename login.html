@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log In</title>
+    <link rel="stylesheet" href="./src/css/output.css" />
+  </head>
+  <body>
+    <div class="min-h-screen bg-amber-100 flex justify-center items-center">
+      <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="font-bold text-center text-2xl">Log In</h1>
+        <form action="index.html" class="space-y-4" id="loginForm">
+          <div>
+            <label for="name" class="block font-medium text-gray-400"
+              >Email</label
+            >
+            <input
+              type="email"
+              id="userEmail"
+              placeholder="enter email"
+              class="w-full border border-gray-300 rounded-md shadow-sm p-2"
+              required
+            />
+            <span class="block text-red-300 text-sm"></span>
+          </div>
+          <div>
+            <label for="password" class="block font-medium text-gray-400"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="userPassword"
+              placeholder="enter password"
+              class="w-full border border-gray-300 rounded-md shadow-sm p-2"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full py-2 px-4 bg-amber-600 text-white font-semibold rounded-md shadow hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
+          >
+            Log In
+          </button>
+        </form>
+      </div>
+    </div>
+    <script src="./src/js/login.js"></script>
+  </body>
+</html>
